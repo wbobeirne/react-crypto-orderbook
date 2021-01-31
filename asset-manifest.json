@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/react-crypto-orderbook/static/js/main.4dbf694d.chunk.js",
-    "main.js.map": "/react-crypto-orderbook/static/js/main.4dbf694d.chunk.js.map",
+    "main.js": "/react-crypto-orderbook/static/js/main.e60a2bb3.chunk.js",
+    "main.js.map": "/react-crypto-orderbook/static/js/main.e60a2bb3.chunk.js.map",
     "runtime-main.js": "/react-crypto-orderbook/static/js/runtime-main.dd181e2f.js",
     "runtime-main.js.map": "/react-crypto-orderbook/static/js/runtime-main.dd181e2f.js.map",
     "static/js/2.7853919b.chunk.js": "/react-crypto-orderbook/static/js/2.7853919b.chunk.js",
@@ -12,6 +12,6 @@
   "entrypoints": [
     "static/js/runtime-main.dd181e2f.js",
     "static/js/2.7853919b.chunk.js",
-    "static/js/main.4dbf694d.chunk.js"
+    "static/js/main.e60a2bb3.chunk.js"
   ]
 }
