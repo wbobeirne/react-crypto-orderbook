@@ -11,6 +11,13 @@ order book. This project was bootstrapped with
 - Material-UI was chosen to have ready-use cross-browser friendly components, and for its excellent JSS styling system for custom styles
 - Prettier and ESLint were added to ensure consistent code that follows best practices
 
+## Requirements
+
+- Node 10+
+- Yarn (npm works too, but won't respect the yarn.lock file)
+
+Install dependencies with `yarn` before running scrips.
+
 ## Available Scripts
 
 In the project directory, you can run:
