@@ -4,15 +4,18 @@
 - For performance improvement and a less jarring UX, I would have liked to throttle the order book updates to the UI to something like once a second. This would be pretty trivial to do within the context and have it "just work" for the rest of the app.
 - I may have restructured the data to have prices as a map instead of a list, it would have been convenient for deduplication and grouping, e.g. doing `orderBook[price] = quantity` is easier than doing a find / replace in a list of orders. However I had initially built it out as a list to mirror the API data, and didn't have time to refactor it after coming to this conclusion.
 - A graph or other visual element would have been fun to build, but felt out of scope for the assignment.
+- I would have liked to smooth out the jumpiness of the initial loading experience, before the first orders are sent
 
 # 2. What would you have done differently if you knew this page was going to get thousands of views per second vs per week?
 
 Given that this page is a fairly svelte static page with asset caching, I don't
-think there'd need to be much improvement on the initial page load. Something to
-disable or reduce socket updates when the user isn't looking at the page might
-reduce some load. I'd also be interested in using BroadcastChannels and / or
-Service Workers to allow for a single connection to work for any number of
-tabs, if the browser supports it.
+think there'd need to be much improvement on the initial page load. Perhaps
+using `preact` instead of `react` for some bundle size savings.
+
+For backend load reduction, something to disable or reduce socket updates when
+the user isn't looking at the page might reduce some load. I'd also be
+interested in using BroadcastChannels and / or Service Workers to allow for a
+single connection to work for any number of tabs, if the browser supports it.
 
 # 3. What was the most useful feature that was added to the latest version of your chosen language? Please include a snippet of code that shows how you've used it.
 

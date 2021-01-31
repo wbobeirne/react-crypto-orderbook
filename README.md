@@ -23,3 +23,7 @@ Runs the app in the development mode.
 
 Builds the app for production to the `build` folder. It correctly bundles React
 in production mode and optimizes the build for the best performance.
+
+### `yarn deploy`
+
+Deploy the project to GitHub pages via the `gh-pages` branch.
