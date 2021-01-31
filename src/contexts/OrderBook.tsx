@@ -41,8 +41,13 @@ export const OrderBookProvider: React.FC = ({ children }) => {
   const [isConnecting, setIsConnecting] = useState(true);
   const [isConnected, setIsConnected] = useState(false);
   const [product, setProduct] = useState("PI_XBTUSD");
-  const [orderBook, setOrderBook] = useState<OrderBookState["orderBook"]>({ asks: [], bids: [] });
-  const [groupedOrderBook, setGroupedOrderBook] = useState<OrderBookState["orderBook"]>(orderBook);
+  const [orderBook, setOrderBook] = useState<OrderBookState["orderBook"]>({
+    asks: [],
+    bids: [],
+  });
+  const [groupedOrderBook, setGroupedOrderBook] = useState<
+    OrderBookState["orderBook"]
+  >(orderBook);
   const [groupSize, setGroupSize] = useState(2.5);
   const [connectionTries, setConnectionTries] = useState(0);
 
@@ -77,8 +82,8 @@ export const OrderBookProvider: React.FC = ({ children }) => {
 
   // Incrementing connectionTries triggers websocket reconnect
   const reconnect = useCallback(() => {
-    setConnectionTries(t => t + 1);
-  }, [])
+    setConnectionTries((t) => t + 1);
+  }, []);
 
   // Send subscribe whenever we connect or change our subscribed products
   useEffect(() => {
@@ -111,12 +116,12 @@ export const OrderBookProvider: React.FC = ({ children }) => {
     };
     ws.current.addEventListener("message", onMessage);
     return () => ws.current?.removeEventListener("message", onMessage);
-  }, [isConnected, product]);
+  }, [isConnected, product, send]);
 
   // Clump the order book into specified price groupings and send that out instead
   useEffect(() => {
-    setGroupedOrderBook(groupOrderBookPrices(orderBook, groupSize))
-  }, [orderBook, groupSize])
+    setGroupedOrderBook(groupOrderBookPrices(orderBook, groupSize));
+  }, [orderBook, groupSize]);
 
   // Memoize the value to prevent unnecessary re-renders
   const value = useMemo<OrderBookState>(
@@ -130,7 +135,7 @@ export const OrderBookProvider: React.FC = ({ children }) => {
       setProduct,
       setGroupSize,
     }),
-    [isConnecting, isConnected, groupedOrderBook, product, groupSize],
+    [isConnecting, isConnected, groupedOrderBook, product, groupSize, reconnect]
   );
 
   return (
